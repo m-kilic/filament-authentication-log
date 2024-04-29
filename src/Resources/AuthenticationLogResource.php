@@ -24,7 +24,7 @@ class AuthenticationLogResource extends Resource
 
     public static function shouldRegisterNavigation(): bool
     {
-        return config('filament-authentication-log.navigation.authentication-log.register', true);
+        return auth()->user()->isSuperAdmin() && config('filament-authentication-log.navigation.authentication-log.register', true);
     }
 
     public static function getNavigationIcon(): string
