@@ -52,6 +52,11 @@ class AuthenticationLogResource extends Resource
         return __('filament-authentication-log::filament-authentication-log.navigation.authentication-log.plural-label');
     }
 
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
     public static function form(Form $form): Form
     {
         return $form
